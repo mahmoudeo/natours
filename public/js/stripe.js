@@ -13,7 +13,6 @@ export const bookTour = async (tourId) => {
     // 2) Create checkout form + chanre credit card
     window.location.href = session.data.session.url;
   } catch (err) {
-    console.log(err);
     showAlert('error', err);
   }
 };

@@ -98,7 +98,6 @@ userSchema.methods.incrementFailedLogin = async function () {
   if ((this.failedLogin >= this.maxLoginAttempts)) {
     this.nextLoginDate = Date.now() + 30 * 60 * 1000; // 30 دقيقة
   }
-  console.log(this.failedLogin, this.nextLoginDate);
   await User.findByIdAndUpdate(this._id, this);
 };
 
@@ -122,7 +121,6 @@ userSchema.methods.createPasswordResetToken = function () {
     .update(resetToken)
     .digest('hex');
   this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
-  console.log({ resetToken }, this.passwordResetToken);
 
   return resetToken;
 };

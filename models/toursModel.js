@@ -143,7 +143,6 @@ tourSchema.pre(/^find/, function (next) {
 });
 
 tourSchema.post(/^find/, function (doc, next) {
-  console.log(`${Date.now() - this.start} ms`);
 
   next();
 });
